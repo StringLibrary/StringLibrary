@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1649284878 source:d:\descargas\escritygames\escrityalpha\funciones.c
+	<stdio.h>
+	<windows.h>
+
+1649284216 source:d:\descargas\escritygames\escrityalpha\main.cpp
+	<windows.h>
+	<stdio.h>
+	"palabras.h"
+	"funciones.h"
+	"resource.h"
+
+1649166180 d:\descargas\escritygames\escrityalpha\resource.h
+	<windows.h>
+
+1649284282 d:\descargas\escritygames\escrityalpha\palabras.h
+	<stdio.h>
+	<stdlib.h>
+
+1649283896 d:\descargas\escritygames\escrityalpha\funciones.h
+	"funciones.c"
+
+1649284878 d:\descargas\escritygames\escrityalpha\funciones.c
+	<stdio.h>
+	<windows.h>
+
+1649166648 source:d:\descargas\escritygames\escrityalpha\resource.rc
+	"resource.h"
+

@@ -1,0 +1,15 @@
+#include "resource.h"
+
+DLG_MAIN DIALOGEX 6, 5, 194, 106
+
+CAPTION "Escrity 1.0.2"
+
+FONT 8, "Tahoma"
+
+STYLE 0x10CE0804
+
+BEGIN
+   CONTROL "print(TEXT):", ID_EDIT_COMMAND, "Edit", 0x10010000, 49,  5, 100, 15
+   CONTROL "&Ejecutar", ID_BTN_EJECUTAR, "Button", 0x10010000, 70, 29, 48, 15
+   CONTROL "&Salir", IDC_BTN_QUIT, "Button", 0x10010000, 70, 49, 46, 15
+END

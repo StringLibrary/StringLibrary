@@ -1,0 +1,9 @@
+#include <windows.h>
+
+// ID of Main Dialog
+#define DLG_MAIN 101
+
+// ID of Button Controls
+#define ID_EDIT_COMMAND 1001
+#define ID_BTN_EJECUTAR 1002
+#define IDC_BTN_QUIT 1003
