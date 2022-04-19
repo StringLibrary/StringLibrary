@@ -16,7 +16,7 @@ Instrucciones :
                               
                               removeFile(FILE):
                               
-                              openCreatorSprit(TEXT):
+                              openCreatorAseets(TEXT):
                               
                               sum(num1.num2):
                               
