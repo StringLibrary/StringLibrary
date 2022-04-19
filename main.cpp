@@ -11,7 +11,10 @@
 HINSTANCE hInst;
 
 BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam){
+
 	char command[100];
+
+	char command2[1000];
 	char user1[100];
 	char user2[100];
 	char user3[100];
@@ -19,18 +22,20 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam){
 
 	switch (uMsg){
 	case WM_INITDIALOG:
-		printf("Escrity : initialize the dialog and console : exitoso!\n");
+		printf("Escrity : Redy for aseets\n");
+
+		SetConsoleTitle("Escrity 1.0.2");
 		/*
              * TODO: Add code to initialize the dialog.
              */
 		return TRUE;
 
 	case WM_CLOSE:
-		printf("Escrity : user : exit?\n");
+		printf("Escrity : detecta : salida de usuario?\n");
 		if (MessageBox(hwndDlg, "Seguro que desea salir de Escrity 1.0.2", "Escrity : user : exit ", MB_ICONINFORMATION | MB_OKCANCEL) == IDOK){
 			EndDialog(hwndDlg, 0);
 		}
-		printf("Escrity : user : no exit!\n");
+		printf("Escrity : detecta : cancelamiento de salida de usuario!\n");
 		return TRUE;
 
 	case WM_COMMAND:
@@ -43,7 +48,8 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam){
 			if (MessageBox(hwndDlg, "Seguro que desea salir de Escrity 1.0.2", "Escrity : user : exit ", MB_ICONQUESTION | MB_OKCANCEL) == IDOK){
 				EndDialog(hwndDlg, 0);
 			}
-			printf("Escrity : user : no exit.\n");
+
+			printf("Escrity : detecta : cancelamiento de salida de usuario!\n");
 			return TRUE;
 
 		case ID_BTN_EJECUTAR:
@@ -108,7 +114,7 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam){
 				scanf("%i", &num2);
 				printf(" ):\n");
 				result = num1 + num2;
-				printf(">> N : ( %i ) + N : ( %i ) = (%i)\n");
+				printf(">> N : ( %i ) + N : ( %i ) = (%i)\n",num1,num2,result);
 			}
 			if (strcmp(command, res) == 0){
 				MessageBox(hwndDlg, "Se ha obtenido la instruccion \"sum():\"", "Escrity : obteniendo...", MB_ICONINFORMATION);
@@ -119,7 +125,7 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam){
 				scanf("%i", &num2);
 				printf(" ):\n");
 				result = num1 - num2;
-				printf(">> N : ( %i ) - N : ( %i ) = (%i)\n");
+				printf(">> N : ( %i ) - N : ( %i ) = (%i)\n",num1,num2,result);
 			}
 			else if (strcmp(command, mult) == 0){
 				MessageBox(hwndDlg, "Se ha obtenido la instruccion \"sum():\"", "Escrity : obteniendo...", MB_ICONINFORMATION);
@@ -130,7 +136,7 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam){
 				scanf("%i", &num2);
 				printf(" ):\n");
 				result = num1 * num2;
-				printf(">> N : ( %i ) * N : ( %i ) = (%i)\n");
+				printf(">> N : ( %i ) * N : ( %i ) = (%i)\n",num1,num2,result);
 			}
 			if (strcmp(command, divi) == 0){
 				MessageBox(hwndDlg, "Se ha obtenido la instruccion \"sum():\"", "Escrity : obteniendo...", MB_ICONINFORMATION);
@@ -141,7 +147,7 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam){
 				scanf("%i", &num2);
 				printf(" ):\n");
 				result = num1 / num2;
-				printf(">> N : ( %i ) / N : ( %i ) = (%i)\n");
+				printf(">> N : ( %i ) / N : ( %i ) = (%i)\n",num1,num2,result);
 			}
 			else if (strcmp(command, dream) == 0){
 				MessageBox(hwndDlg, "Se ha obtenido la instruccion \"dream():\"", "Escrity : obteniendo...", MB_ICONINFORMATION);
@@ -152,8 +158,14 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam){
 			}
 			else{
 				printf("Escrity : error : sintaxis : no se ha encontrado\n");
-				MessageBox(hwndDlg, "Escrity erro sintaxis : no se encontro en la lista de instrucciones. La solicitada", "Escrity : error : sintaxis", MB_ICONERROR);
+				MessageBox(hwndDlg, "Escrity error sintaxis : no se encontro en la lista de instrucciones. La solicitada", "Escrity : error : sintaxis", MB_ICONERROR);
 			}
+			return TRUE;
+
+			case ID_BTN_EJECUTAR2:
+			GetDlgItemText(hwndDlg , ID_EDIT_COMMAND , command , 100);
+			GetDlgItemText(hwndDlg , ID_EDIT_COMMAND , command2 , 1000);
+			readFile2(command,command2 , hwndDlg);
 			return TRUE;
 		}
 	}
@@ -167,3 +179,4 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	// The user interface is a modal dialog box
 	return DialogBox(hInstance, MAKEINTRESOURCE(DLG_MAIN), NULL, (DLGPROC)DialogProc);
 }
+
