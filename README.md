@@ -33,5 +33,4 @@ uno errores graves con el intento de agregar las nuevas funciones como
 motrar una imagen , reproducir audio , etc...
 y se haran mas cambios proximamente.
 
-
-
+¡por ahora agregar mas funciones!
